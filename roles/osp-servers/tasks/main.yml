@@ -1,6 +1,7 @@
 ---
-
-# tasks file for osp.servers
-
-- include_tasks: servers.yml
-  with_items: "{{ osp_servers }}"
+- name: Create instances
+  include_tasks: define_instance.yaml
+  vars:
+    external_network: ext_network
+    internal_network: int_network
+    ospcloud: ospcloud
