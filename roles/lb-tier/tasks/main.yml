@@ -1,14 +1,13 @@
 ---
-# tasks file for lb-tier
-# Added by Julio.
-- name: install haproxy
+
+- name: install {{ service }}
   yum:
-    name: haproxy
+    name: "{{ service }}"
     state: latest
 
-- name: enable haproxy at boot
+- name: enable {{ service }} at boot
   service:
-    name: haproxy
+    name: "{{ service }}"
     enabled: yes
 
 - name: configure haproxy to load balance over app servers
@@ -17,7 +16,7 @@
     dest: /etc/haproxy/haproxy.cfg
     mode: 0644
 
-- name: start haproxy
+- name: start {{ service }}
   service:
-    name: haproxy
+    name: "{{ service }}"
     state: restarted

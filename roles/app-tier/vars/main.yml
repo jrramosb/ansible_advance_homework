@@ -1,4 +1,4 @@
 ---
 # vars file for app-tier
-# Updated by Julio
-tomcat_web_root: "/usr/share/tomcat/webapps/ROOT"
+service: tomcat
+tomcat_web_root: /usr/share/tomcat/webapps/ROOT
