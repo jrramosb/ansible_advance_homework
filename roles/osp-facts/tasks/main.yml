@@ -1,9 +1,7 @@
 ---
 # tasks file for osp-facts
    - name: Fetch Instance Info
-     #os_server_facts:
-     #Added by Julio
-     os_server_info:
+     os_server_facts:
       cloud: ospcloud
       region_name: RegionOne
      register: result
