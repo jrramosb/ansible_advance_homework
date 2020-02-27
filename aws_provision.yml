@@ -48,3 +48,4 @@
     - name: Wait for mail
       pause:
         minutes: 10 
+
