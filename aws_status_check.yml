@@ -1,5 +1,6 @@
-- hosts: tag_instance_filter_three_tier_app_psrivast_redhat_com
+- hosts: tag_instance_filter_three_tier_app_julio_barrios_atos_net
   gather_facts: false
+  become: false
   tasks:
   - name: Check the instances status
     wait_for:
@@ -10,4 +11,3 @@
     delegate_to: localhost
     with_items:
       - "{{ inventory_hostname }}"
-        

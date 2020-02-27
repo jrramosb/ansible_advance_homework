@@ -1,6 +1,5 @@
 ---
-- name: Create Homework Assignment project 
-# Use tower module or tower-cli to create Ansible Tower project. Name of the project is specifed in ./vars/main.yml
+- name:  too much
 
   tower_project:
     name: "{{proj_name}}"
@@ -8,11 +7,15 @@
     organization: "{{org_name}}"
     state: present
     scm_type: git
-    scm_url: https://github.com/jrramosb/ansible_advance_homework
+    scm_url: https://github.com/woroxon/ansible_advance_homework
     scm_update_on_launch: yes
     scm_branch: master
+    #scm_credential: "/root/ansible_advance_homework/gitpass.yml"
+    #scm_credential: git_key
 
-- name: Machine Credentail to connect to workstation using openstack.pub
+
+
+- name: Machine Credential to connect to workstation using openstack.pub
   tower_credential:
     name: Connect_to_workstation
     organization: Default
@@ -46,9 +49,9 @@
     tower_username: admin
     tower_password: r3dh4t1!
     tower_verify_ssl: no
-    ssh_key_data: "{{ lookup('file', '/root/.ssh/mykey.pem') }}"
+    become_method: "sudo"
+    ssh_key_data: "{{ lookup('file', path_to_opentlc_key) }}"
     username: "{{ opentlc_login }}"
-    become_method: sudo
 
 - name: Remove secret
   file:
